@@ -1,0 +1,190 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 用紙サイズの設定
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\setlength{\textwidth}{\fullwidth}
+%\setlength{\textheight}{40\baselineskip}
+%\addtolength{\textheight}{\topskip}
+%\setlength{\voffset}{-0.55in}
+\setlength{\textwidth}{155truemm}      % テキスト幅: 210-(37+18)=155mm
+\setlength{\fullwidth}{\textwidth}     % ページ全体の幅
+\setlength{\oddsidemargin}{32truemm}   % 左余白
+%\setlength{\oddsidemargin}{37truemm}
+\addtolength{\oddsidemargin}{-1truein} % 左位置デフォルトから-1inch
+\setlength{\topmargin}{25truemm}       % 上余白
+%\setlength{\topmargin}{30truemm}       % 上余白
+%\setlength{\textheight}{237truemm}     % テキスト高さ: 297-(30+30)=237mm
+\setlength{\textheight}{227truemm}     % フッタが下に行きすぎるためテキスト高さを変更
+\addtolength{\topmargin}{-1truein}     % 上位置デフォルトから-1inch
+\setlength{\footskip}{30.5pt} %フッタと文章の間隔を調整
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 文章体裁の設定（フラクションをルーズに設定）
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\textfraction{.001}
+\def\topfraction{.9}
+\def\bottomfraction{.9}
+\def\floatpagefraction{.99}
+\def\dbltopfraction{.999}
+\def\dblbottomfraction{.9999}
+\def\dblfloatpagefraction{.99}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 名称の変更
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\bibname}{参考文献}
+%\renewcommand{\figurename}{Fig. }
+%\renewcommand{\tablename}{Table }
+%
+%章番号付き表
+ \makeatletter
+ \renewcommand{\thetable}{%
+ \thechapter.\arabic{table}}
+ \@addtoreset{table}{chapter}
+ \makeatother
+ %
+ %章番号付き図
+ \makeatletter
+ \renewcommand{\thefigure}{%
+\thechapter.\arabic{figure}}
+ \@addtoreset{figure}{chapter}
+ \makeatother
+ %
+ %章番号付き数式
+ \makeatletter
+ \renewcommand{\theequation}{%
+ \thechapter.\arabic{equation}}
+ \@addtoreset{equation}{chapter}
+ \makeatother
+
+% captionを太字に
+\makeatletter
+\long\def\@makecaption#1#2{% \@makecaption を再定義します
+\vskip\abovecaptionskip
+\iftdir\sbox\@tempboxa{#1\hskip1zw#2}%
+\else\sbox\@tempboxa{\headfont{#1: #2}} % ここを変更する
+%\else\sbox\@tempboxa{\textbf{#1 } #2} % ここを変更する
+\fi
+\ifdim \wd\@tempboxa >\hsize%
+\iftdir #1\hskip1zw#2\relax\par
+\else \headfont{#1: #2}\relax\par\fi% ここを変更する
+%\else \textbf{#1:} #2\relax\par\fi% ここを変更する
+\else
+\global \@minipagefalse
+\hbox to\hsize{\hfil\box\@tempboxa\hfil}
+\fi
+\vskip\belowcaptionskip}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 行数指定の為の設定
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\linesparpage#1{\baselineskip=\textheight
+   \divide\baselineskip by #1}
+\def\kcharparline#1{%
+   \ifx\xkanjiskip\undefined%
+   % NTT jTeX用
+   \jintercharskip 0mm plus 0.2mm minus 0.2mm
+   \else
+   % ASCII pTex用
+   \xkanjiskip 0mm plus 0.2mm minus 0.2mm
+   \fi
+   \settowidth{\textwidth}{あ}%
+   \multiply\textwidth by #1}
+
+\makeatletter
+\def\mojiparline#1{
+    \newcounter{mpl}
+    \setcounter{mpl}{#1}
+    \@tempdima=\linewidth
+    \advance\@tempdima by-\value{mpl}zw
+    \addtocounter{mpl}{-1}
+    \divide\@tempdima by \value{mpl}
+    \advance\kanjiskip by\@tempdima
+    \advance\parindent by\@tempdima
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 記号の為の設定
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\diff}{\mathrm{d}}  %微分記号
+\newcommand{\divergence}{\mathrm{div}\,}  %ダイバージェンス
+\newcommand{\grad}{\mathrm{grad}\,}  %グラディエント
+\newcommand{\rot}{\mathrm{rot}\,}  %ローテーション
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% タイトルの設定
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\def\thesistitle#1{\gdef\@thesistitle{#1}}
+\def\thesissubtitle#1{\gdef\@thesissubtitle{#1}}
+\def\snum#1{\gdef\@snum{#1}}
+\def\jname#1{\gdef\@jname{#1}}
+\def\chiefexaminer#1{\gdef\@chiefexaminer{#1}}
+\def\nendo#1{\gdef\@nendo{#1}}
+\def\daigaku#1{\gdef\@daigaku{#1}}
+\def\gakubu#1{\gdef\@gakubu{#1}}
+\def\syubetsu#1{\gdef\@syubetsu{#1}}
+\def\gakka#1{\gdef\@gakka{#1}}
+\def\labname#1{\gdef\@labname{#1}}
+\def\teisyutsu#1{\gdef\@teisyutsu{#1}}
+\newif\ifSUBT
+
+%\def\@maketitle{%
+%
+\renewcommand{\maketitle}{%
+%\def\@maketitle{%
+%%%%%%%%%
+\newpage\null
+%\baselineskip = 12pt
+{\headfont
+
+\begin{center}
+%%\vspace*{170truept}
+{\large \@daigaku~\@gakubu ~~~\@nendo~\@syubetsu }\\
+\vspace*{150truept}
+{\huge \@thesistitle}\\ % タイトル
+%\ifSUBT
+\ifSUBT{
+\vspace{10truept}
+{\Large ―~\@thesissubtitle~―}\\ % サブタイトル（なければコメントアウト）
+\vspace{150truept}
+}
+\else
+\vspace{170truept}
+\fi
+\vspace{20truept}
+%\vspace{120truept}
+{\Large
+\begin{tabular}{rl}
+%{\Large 学籍番号 \snum}\\ % 学籍番号
+学籍番号 & \hspace{1zw}{\@snum} \\
+%{\Large \jname}\\ % 著者
+ & \\
+氏名 & \hspace{1zw}{\@jname}
+\\
+  & \\
+  & \\
+{\large 指導教員} & \hspace{1zw}{\large \@chiefexaminer}\\
+\end{tabular}
+}\\
+\vspace{50truept}
+{\large \@teisyutsu}\\ % 提出日
+\end{center}
+}
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%
+% ヘッダ情報設定
+%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\pagestyle{fancy}
+\lhead{\@thesistitle}
+\rhead{\thepage}
+\cfoot{\@daigaku ~\@gakubu ~\@labname}
+\rfoot{\@jname}
+\lfoot{\@nendo~\@syubetsu}
+\renewcommand{\footrulewidth}{0.4pt}
+\makeatother
+% 目次にサブセクションも表示
+\setcounter{tocdepth}{2}

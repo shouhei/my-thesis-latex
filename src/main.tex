@@ -1,0 +1,116 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% プリアンブル 各種設定情報
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,11pt,oneside,openany]{jsbook}
+%
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{wrapfig}
+\usepackage{ascmac}
+\usepackage{fancyvrb}
+\usepackage{makeidx}
+\usepackage{comment}
+\usepackage{eclbkbox}
+\usepackage{float}
+
+%%%%%%%%%%ここより上は必要なスタイルを読み込みたい時にのみ編集%%%%%%%%%%%%%
+\usepackage{../style/myjlab}
+\makeindex
+%%%%%%%%%% 念のため \usepackegeの一番下に myjlab があるように%%%%%%%%%%%%%
+
+%%%%%%%%%%基本情報設定変更の必要なし%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\daigaku{青山学院大学}
+\gakubu{社会情報学部}
+\gakka{社会情報学科}
+\syubetsu{卒業論文}
+\labname{宮治研究室}
+\chiefexaminer{宮治 裕 准教授}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ここから先「ここまで個人設定」の範囲に
+% 各自の固有の情報を記入して下さい
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nendo{2013年度}
+\teisyutsu{2014年~~1月}
+\snum{15387019}
+\jname{宮治 裕}
+\thesistitle{宮治研における論文作成について} %タイトルを記入
+\thesissubtitle{\LaTeX の利用} %サブタイトルを記入 ない場合はコメントアウト
+\SUBTtrue %サブタイトル有りの場合 ない場合は，コメントアウト
+%\SUBTfalse %サブタイトル無しの場合 有る場合は，コメントアウト
+%%%%%%%%%% ここまで個人設定 %%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ここから先，論文内原稿
+% 「ここまで共通」まで編集不要
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\linesparpage{30} %行数指定
+\mojiparline{35} %文字数指定
+\pagestyle{empty}
+\maketitle
+
+\frontmatter
+%%% 論文要旨
+\chapter*{論文要旨}
+%\thispagestyle{empty}
+\addcontentsline{toc}{chapter}{論文要旨}
+\input{abstract}
+\pagestyle{plain}
+\pagenumbering{roman}
+% abstract.texの中は \chapterなど書かずに単なるテキストを入力する
+
+%%% 謝辞
+\chapter*{謝辞}
+%\thispagestyle{empty}
+\addcontentsline{toc}{chapter}{謝辞}
+\input{thanks}
+% thanks.texの中は \chapterなど書かずに単なるテキストを入力する
+
+%%% 目次
+\tableofcontents
+% 目次は自動生成される
+%
+\mainmatter
+\pagestyle{fancy}
+\pagenumbering{arabic}
+%%%%%%%%%% 「ここまで共通」 %%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ここから先「ここまで論文本文」の範囲を
+% 各自の章立てや付録にあわせて編集して下さい
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% 本文ここから chap1 chap2 chap3 同様に必要なだけ章を入れる
+\include{chap1} % 1章
+\include{chap2} % 2章
+\include{chap3} % 3章
+%\include{chap4} % 4章
+%\include{chap5} % 5章
+%\include{chap6} % 6章
+
+%%% 付録 -- 必要なければ以下を2行コメントアウト
+\appendix
+\include{appendixA}
+%\include{appendixB} %必要に応じて付録の数を増やす
+
+%\clearpage
+%%%%%%%%%% ここまで論文本文 %%%%%%%%%%%%%%
+
+
+% ************** ここから先の範囲は編集不要 ****************
+%%% 参考文献
+\bibliographystyle{junsrt}
+\bibliography{myrefs}
+% myrefs.bib の中はサンプルファイルを参考に記述
+
+\newpage
+\printindex
+%
+\end{document}
