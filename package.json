@@ -1,0 +1,19 @@
+{
+  "name": "my-thesis-latex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shouhei/my-thesis-latex.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shouhei/my-thesis-latex/issues"
+  },
+  "homepage": "https://github.com/shouhei/my-thesis-latex#readme"
+}
