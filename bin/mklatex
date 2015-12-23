@@ -7,9 +7,10 @@ cd src
 cd images
 extractbb *.png *.jpg *.pdf
 cd ../..
+cp -a src/* build/
 cd build
 platex ../src/main
-pbibtex ../src/main
+pbibtex main
 platex ../src/main
 platex ../src/main
 dvipdfmx main
