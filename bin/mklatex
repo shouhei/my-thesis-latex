@@ -9,8 +9,8 @@ extractbb *.png *.jpg *.pdf
 cd ../..
 cp -a src/* build/
 cd build
-platex ../src/main
+platex main
 pbibtex main
-platex ../src/main
-platex ../src/main
+platex main
+platex main
 dvipdfmx main
