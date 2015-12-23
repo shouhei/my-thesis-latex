@@ -11,3 +11,4 @@
 *.ps
 *.eps
 *.pdf
+build/
