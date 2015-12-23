@@ -7,6 +7,7 @@ cd src
 cd assets/images
 extractbb *.png *.jpg *.pdf
 cd ../../..
+rm -rf build/*
 cp -a src/* build/
 cd build
 platex main
