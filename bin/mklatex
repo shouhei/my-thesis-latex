@@ -14,4 +14,3 @@ pbibtex main
 platex ../src/main
 platex ../src/main
 dvipdfmx main
-open -a preview.app main.pdf
