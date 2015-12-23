@@ -4,9 +4,9 @@ cd build
 rm *.aux *.bbl *.blg *.idx *.ilg *.ind *.toc
 cd ..
 cd src
-cd images
+cd assets/images
 extractbb *.png *.jpg *.pdf
-cd ../..
+cd ../../..
 cp -a src/* build/
 cd build
 platex main
