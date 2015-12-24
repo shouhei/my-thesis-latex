@@ -15,7 +15,7 @@
 \usepackage{fancyvrb}
 \usepackage{makeidx}
 \usepackage{comment}
-\usepackage{eclbkbox}
+\usepackage{../style/eclbkbox}
 \usepackage{float}
 
 %%%%%%%%%%ここより上は必要なスタイルを読み込みたい時にのみ編集%%%%%%%%%%%%%
@@ -35,13 +35,13 @@
 % ここから先「ここまで個人設定」の範囲に
 % 各自の固有の情報を記入して下さい
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\nendo{2013年度}
-\teisyutsu{2014年~~1月}
-\snum{15387019}
-\jname{宮治 裕}
-\thesistitle{宮治研における論文作成について} %タイトルを記入
-\thesissubtitle{\LaTeX の利用} %サブタイトルを記入 ない場合はコメントアウト
-\SUBTtrue %サブタイトル有りの場合 ない場合は，コメントアウト
+\nendo{2015年度}
+\teisyutsu{2016年~~1月}
+\snum{38114004}
+\jname{山口 将平}
+\thesistitle{インターネットサービスを主軸としたIT企業の業務に基づく実践的ソフトウェア開発手法} %タイトルを記入
+%\thesissubtitle{\LaTeX の利用} %サブタイトルを記入 ない場合はコメントアウト
+%\SUBTtrue %サブタイトル有りの場合 ない場合は，コメントアウト
 %\SUBTfalse %サブタイトル無しの場合 有る場合は，コメントアウト
 %%%%%%%%%% ここまで個人設定 %%%%%%%%%%%%%%
 
@@ -88,16 +88,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% 本文ここから chap1 chap2 chap3 同様に必要なだけ章を入れる
-\include{chap1} % 1章
-\include{chap2} % 2章
-\include{chap3} % 3章
+\include{./chap1} % 1章
+\include{./chap2} % 2章
+\include{./chap3/main} % 3章
 %\include{chap4} % 4章
 %\include{chap5} % 5章
 %\include{chap6} % 6章
 
 %%% 付録 -- 必要なければ以下を2行コメントアウト
 \appendix
-\include{appendixA}
+%\include{./appendixA}
 %\include{appendixB} %必要に応じて付録の数を増やす
 
 %\clearpage
@@ -107,7 +107,7 @@
 % ************** ここから先の範囲は編集不要 ****************
 %%% 参考文献
 \bibliographystyle{junsrt}
-\bibliography{myrefs}
+\bibliography{./myrefs}
 % myrefs.bib の中はサンプルファイルを参考に記述
 
 \newpage
