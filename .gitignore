@@ -13,3 +13,4 @@
 *.pdf
 build/
 node_modules/
+*.texe
