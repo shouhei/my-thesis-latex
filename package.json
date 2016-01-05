@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/shouhei/my-thesis-latex/issues"
   },
-  "homepage": "https://github.com/shouhei/my-thesis-latex#readme"
+  "homepage": "https://github.com/shouhei/my-thesis-latex#readme",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "node-notifier": "^4.4.0"
+  }
 }
