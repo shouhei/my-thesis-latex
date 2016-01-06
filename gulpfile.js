@@ -9,15 +9,27 @@ gulp.task('tex', function(){
     gulp.watch(['./src/**/*.jpg'], ['build']);
 });
 gulp.task('build', function(){
-  exec('./bin/mklatex', function (err, stdout, stderr) {
-      console.log(stdout);
-      console.log(stderr);
-      notifier.notify({
-          title: 'gulp tex build',
-          message: 'success',
-          sound: true,
-          wait: true
-      }, function (err, response) {
-      });
-  });
+    exec('./bin/mklatex',
+         {timeout: 10000},
+         function (err, stdout, stderr) {
+             var status = "";
+             var sound = false;
+             if (err !== null) {
+                 console.log('exec error: ' + err);
+                 console.log(stderr);
+                 status = 'failed';
+                 sound = "Basso";
+             } else {
+                 console.log(stdout)
+                 status = 'success';
+             }
+             notifier.notify({
+                 title: 'gulp tex build',
+                 message: status,
+                 sound: sound,
+                 wait: true
+             }, function (err, response) {
+             });
+
+         });
 });
