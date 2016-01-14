@@ -7,6 +7,7 @@ gulp.task('tex', function(){
     gulp.watch(['./src/**/*.bib'], ['build']);
     gulp.watch(['./src/**/*.png'], ['build']);
     gulp.watch(['./src/**/*.jpg'], ['build']);
+    gulp.watch(['./style/**/*.sty'], ['build']);
 });
 gulp.task('build', function(){
     exec('./bin/mklatex',
