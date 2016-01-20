@@ -1,0 +1,100 @@
+\section{提案を元にした評価実験に向けた授業シラバス}
+
+本節では前節での提案を元に，評価実験を行う際の授業シラバスを提示する．
+
+\subsection{時間}
+
+本研究で提案する授業は，大学設置基準\cite{univ_criteria}で制定されている単位，2単位分の授業とする．
+
+%\subsection{授業概要} 提案で既に記述済み
+%
+%本授業ではWebサービスを主事業としたIT企業で用いるソフトウェア開発の手法を手本とし、ソフトウェア開発に必要な知識や技術を身につける授業です。
+
+\subsection{評価実験授業での技術選定}
+
+企業で採用されている技術を元に、本授業で採用する技術的なツールは表\ref{tab:技術選定}のとおりとなる．
+
+\begin{table}[ht]
+  \begin{center}
+    \caption{技術選定}
+    \begin{tabular}{|c|c|c|}
+      \hline
+      分類 & ツール名 & 備考 \\
+      \hline
+      プログラミング言語 & Ruby & \\
+      \hline
+      アプリケーションフレームワーク & Ruby on Rails & \\
+      \hline
+      テスティングフレームワーク & Rspec & \\
+      \hline
+      アプリケーションサーバー &  & \\
+      \cline{1-1}\cline{3-3}
+      Webサーバー & Heroku & \\
+      \hline
+      RDBMS & PostgreSQL & \\
+      \hline
+      バージョン管理システム & Git & \\
+      \hline
+      ソースコードホスティングサーバー & GitHub & \\
+      \hline
+      継続的インテグレーションシステム & CircleCI & \\
+      \hline
+    \end{tabular}
+    \label{tab:技術選定}
+  \end{center}
+\end{table}
+
+\subsection{履修条件}
+
+本研究の評価実験に向けた授業では対象\ref{target}で述べた条件に加え以下を履修条件とする。
+
+\begin{itemize}
+ \item[・] HTMLやCSSの扱い方を知っていること
+ \item[・] HTTPメソッドやセッション，クッキーを理解していること
+\end{itemize}
+
+\subsection{授業計画}
+
+本研究で提案する授業の計画は表\ref{tab:授業計画}のとおりとする．
+
+\begin{table}[H]
+  \begin{center}
+    \caption{シラバス}
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      授業回数 & 内容 & \ref{tech-content}取り扱い内容との対応 \\%& 備考 \\
+      \hline
+      第1回 & ソフトウェア開発について & 1 \\%&  \\
+      \hline
+      第2回 & コマンドラインの利用方法 &  \\%&  開発環境の説明も含めた復習 \\
+      \hline
+      第3回 & Ruby基礎文法 &  2 \\%&  \\
+      \hline
+      第4回 & オブジェクト指向Ruby & 2 \\%& Rubyの説明も兼ねたオブジェクト指向の復習 \\
+      \hline
+      第5回 & Gitの使いかた & 3 \\%& \\
+      \hline
+      第6回 & GitHubとRspec & 2，3，4 \\%&  \\
+      \hline
+      第7回 & Ruby On Rails の始め方 & 5 \\%&  \\
+      \hline
+      第8回 & Ruby On Rails を利用したソフトウェアの作成 & 5 \\%& \\
+      \hline
+      第9回 & Ruby On Rails を利用したソフトウェアの改善 1 & 5 \\%& \\
+      \hline
+      第10回 & Ruby On Rails を利用したソフトウェアの改善 2 & 5 \\%& \\
+      \hline
+      第11回 & Ruby On Rails とテスト，継続的インテグレーション & 4，5，6 \\%& \\
+      \hline
+      第12回 & Ruby On Rails とテスト，継続的インテグレーション & 4，5，6 \\%& \\
+      \hline
+      第13回 & Ruby On Rails で作成されたソフトウェアの改善実習 & 全内容 \\%& 画像投稿，お気に入りシステムの改善\\
+      \hline
+      第14回 & Ruby On Rails で作成されたソフトウェアの改善実習 & 全内容 \\%& 画像投稿，お気に入りシステムの改善\\
+      \hline
+      第15回 & Ruby On Rails で作成されたソフトウェアの改善実習 & 全内容 \\%& 画像投稿，お気に入りシステムの改善\\
+      \hline
+    \end{tabular}
+    \label{tab:授業計画}
+  \end{center}
+\end{table}
